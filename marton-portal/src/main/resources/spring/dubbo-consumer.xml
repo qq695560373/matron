@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<dubbo:consumer timeout="30000" />
+	<dubbo:application name="matron-portal"/>
+	<!--<dubbo:registry protocol="zookeeper" address="localhost:2181"/>-->
+	<dubbo:registry  address="N/A"/>
+	<dubbo:reference interface="com.matron.service.MatronItemService" id="matronItemService"
+					 check="false" url="dubbo://127.0.0.1:20880"
+	/>
+    <dubbo:reference interface="com.matron.service.MatronDetailService" id="matronDetailService"
+                     check="false" url="dubbo://127.0.0.1:20880"
+    />
+	<dubbo:reference interface="com.matron.service.UserService" id="userService"
+					 check="false" url="dubbo://127.0.0.1:20880"
+	/>
+	<dubbo:reference interface="com.matron.service.AnswerService" id="answerService"
+					 check="false" url="dubbo://127.0.0.1:20880"
+	/>
+
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common-parent/common-parent.iml" filepath="$PROJECT_DIR$/common-parent/common-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-util/common-util.iml" filepath="$PROJECT_DIR$/common-util/common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/marton-portal/marton-portal.iml" filepath="$PROJECT_DIR$/marton-portal/marton-portal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matron-interface/matron-interface.iml" filepath="$PROJECT_DIR$/matron-interface/matron-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matron-manager/matron-manager.iml" filepath="$PROJECT_DIR$/matron-manager/matron-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matron-manager/matron-manager-mapper/matron-manager-mapper.iml" filepath="$PROJECT_DIR$/matron-manager/matron-manager-mapper/matron-manager-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matron-manager/matron-manager-pojo/matron-manager-pojo.iml" filepath="$PROJECT_DIR$/matron-manager/matron-manager-pojo/matron-manager-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matron-manager/matron-manager-service/matron-manager-service.iml" filepath="$PROJECT_DIR$/matron-manager/matron-manager-service/matron-manager-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matron-manager/matron-manager-web/matron-manager-web.iml" filepath="$PROJECT_DIR$/matron-manager/matron-manager-web/matron-manager-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matron-rest/matron-rest.iml" filepath="$PROJECT_DIR$/matron-rest/matron-rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matron-sso/matron-sso.iml" filepath="$PROJECT_DIR$/matron-sso/matron-sso.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/common-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common-util" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/marton-portal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/matron-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/matron-manager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/matron-manager/matron-manager-mapper" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/matron-manager/matron-manager-pojo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/matron-manager/matron-manager-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/matron-manager/matron-manager-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/matron-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/matron-sso" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.matron.mapper.MatronDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.matron.pojo.MatronDetail" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="idcard" property="idcard" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="marriage" property="marriage" jdbcType="INTEGER" />
+    <result column="exp" property="exp" jdbcType="VARCHAR" />
+    <result column="papers" property="papers" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="year" property="year" jdbcType="VARCHAR" />
+    <result column="ability" property="ability" jdbcType="VARCHAR" />
+    <result column="culture" property="culture" jdbcType="VARCHAR" />
+    <result column="evaluation" property="evaluation" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, idcard, name, nation, marriage, exp, papers, address, year, ability, culture, 
+    evaluation
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.matron.pojo.MatronDetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from matron_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from matron_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from matron_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.matron.pojo.MatronDetailExample" >
+    delete from matron_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.matron.pojo.MatronDetail" >
+    insert into matron_detail (id, idcard, name, 
+      nation, marriage, exp, 
+      papers, address, year, 
+      ability, culture, evaluation
+      )
+    values (#{id,jdbcType=BIGINT}, #{idcard,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{nation,jdbcType=VARCHAR}, #{marriage,jdbcType=INTEGER}, #{exp,jdbcType=VARCHAR}, 
+      #{papers,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
+      #{ability,jdbcType=VARCHAR}, #{culture,jdbcType=VARCHAR}, #{evaluation,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.matron.pojo.MatronDetail" >
+    insert into matron_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="idcard != null" >
+        idcard,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="marriage != null" >
+        marriage,
+      </if>
+      <if test="exp != null" >
+        exp,
+      </if>
+      <if test="papers != null" >
+        papers,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="ability != null" >
+        ability,
+      </if>
+      <if test="culture != null" >
+        culture,
+      </if>
+      <if test="evaluation != null" >
+        evaluation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="marriage != null" >
+        #{marriage,jdbcType=INTEGER},
+      </if>
+      <if test="exp != null" >
+        #{exp,jdbcType=VARCHAR},
+      </if>
+      <if test="papers != null" >
+        #{papers,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="ability != null" >
+        #{ability,jdbcType=VARCHAR},
+      </if>
+      <if test="culture != null" >
+        #{culture,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluation != null" >
+        #{evaluation,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.matron.pojo.MatronDetailExample" resultType="java.lang.Integer" >
+    select count(*) from matron_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update matron_detail
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.idcard != null" >
+        idcard = #{record.idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null" >
+        nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marriage != null" >
+        marriage = #{record.marriage,jdbcType=INTEGER},
+      </if>
+      <if test="record.exp != null" >
+        exp = #{record.exp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.papers != null" >
+        papers = #{record.papers,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ability != null" >
+        ability = #{record.ability,jdbcType=VARCHAR},
+      </if>
+      <if test="record.culture != null" >
+        culture = #{record.culture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.evaluation != null" >
+        evaluation = #{record.evaluation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update matron_detail
+    set id = #{record.id,jdbcType=BIGINT},
+      idcard = #{record.idcard,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      nation = #{record.nation,jdbcType=VARCHAR},
+      marriage = #{record.marriage,jdbcType=INTEGER},
+      exp = #{record.exp,jdbcType=VARCHAR},
+      papers = #{record.papers,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      year = #{record.year,jdbcType=VARCHAR},
+      ability = #{record.ability,jdbcType=VARCHAR},
+      culture = #{record.culture,jdbcType=VARCHAR},
+      evaluation = #{record.evaluation,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.matron.pojo.MatronDetail" >
+    update matron_detail
+    <set >
+      <if test="idcard != null" >
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="marriage != null" >
+        marriage = #{marriage,jdbcType=INTEGER},
+      </if>
+      <if test="exp != null" >
+        exp = #{exp,jdbcType=VARCHAR},
+      </if>
+      <if test="papers != null" >
+        papers = #{papers,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="ability != null" >
+        ability = #{ability,jdbcType=VARCHAR},
+      </if>
+      <if test="culture != null" >
+        culture = #{culture,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluation != null" >
+        evaluation = #{evaluation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.matron.pojo.MatronDetail" >
+    update matron_detail
+    set idcard = #{idcard,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      marriage = #{marriage,jdbcType=INTEGER},
+      exp = #{exp,jdbcType=VARCHAR},
+      papers = #{papers,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      year = #{year,jdbcType=VARCHAR},
+      ability = #{ability,jdbcType=VARCHAR},
+      culture = #{culture,jdbcType=VARCHAR},
+      evaluation = #{evaluation,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

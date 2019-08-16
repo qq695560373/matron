@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="matron-manager:war">
+    <output-path>$PROJECT_DIR$/matron-manager/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>matron-manager</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="matron-manager.war">
+      <element id="artifact" artifact-name="matron-manager:war exploded" />
+    </root>
+  </artifact>
+</component>

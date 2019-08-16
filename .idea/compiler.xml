@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common-util" />
+        <module name="marton-portal" />
+        <module name="matron-interface" />
+        <module name="matron-manager-mapper" />
+        <module name="matron-manager-pojo" />
+        <module name="matron-manager-service" />
+        <module name="matron-manager-web" />
+        <module name="matron-rest" />
+        <module name="matron-sso" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="common-parent" target="1.8" />
+      <module name="common-util" target="1.8" />
+      <module name="marton-portal" target="1.8" />
+      <module name="matron-interface" target="1.8" />
+      <module name="matron-manager" target="1.8" />
+      <module name="matron-manager-mapper" target="1.8" />
+      <module name="matron-manager-pojo" target="1.8" />
+      <module name="matron-manager-service" target="1.8" />
+      <module name="matron-manager-web" target="1.8" />
+      <module name="matron-rest" target="1.8" />
+      <module name="matron-sso" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

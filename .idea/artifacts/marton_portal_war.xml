@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="marton-portal:war">
+    <output-path>$PROJECT_DIR$/marton-portal/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>marton-portal</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="matron-portal.war">
+      <element id="artifact" artifact-name="marton-portal:war exploded" />
+    </root>
+  </artifact>
+</component>

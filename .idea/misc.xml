@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/marton-portal" />
+    <file type="web" url="file://$PROJECT_DIR$/matron-manager" />
+    <file type="web" url="file://$PROJECT_DIR$/matron-rest" />
+    <file type="web" url="file://$PROJECT_DIR$/matron-sso" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/common-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/common-util/pom.xml" />
+        <option value="$PROJECT_DIR$/matron-manager/pom.xml" />
+        <option value="$PROJECT_DIR$/matron-rest/pom.xml" />
+        <option value="$PROJECT_DIR$/marton-portal/pom.xml" />
+        <option value="$PROJECT_DIR$/matron-interface/pom.xml" />
+        <option value="$PROJECT_DIR$/matron-sso/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.matron.mapper.AdvertisingMapper" >
+  <resultMap id="BaseResultMap" type="com.matron.pojo.Advertising" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="morning" property="morning" jdbcType="VARCHAR" />
+    <result column="noon" property="noon" jdbcType="VARCHAR" />
+    <result column="afternoon" property="afternoon" jdbcType="VARCHAR" />
+    <result column="flow" property="flow" jdbcType="VARCHAR" />
+    <result column="pic" property="pic" jdbcType="VARCHAR" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, morning, noon, afternoon, flow, pic, info
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.matron.pojo.AdvertisingExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from advertising
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from advertising
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from advertising
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.matron.pojo.AdvertisingExample" >
+    delete from advertising
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.matron.pojo.Advertising" >
+    insert into advertising (id, morning, noon, 
+      afternoon, flow, pic, 
+      info)
+    values (#{id,jdbcType=INTEGER}, #{morning,jdbcType=VARCHAR}, #{noon,jdbcType=VARCHAR}, 
+      #{afternoon,jdbcType=VARCHAR}, #{flow,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
+      #{info,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.matron.pojo.Advertising" >
+    insert into advertising
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="morning != null" >
+        morning,
+      </if>
+      <if test="noon != null" >
+        noon,
+      </if>
+      <if test="afternoon != null" >
+        afternoon,
+      </if>
+      <if test="flow != null" >
+        flow,
+      </if>
+      <if test="pic != null" >
+        pic,
+      </if>
+      <if test="info != null" >
+        info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="morning != null" >
+        #{morning,jdbcType=VARCHAR},
+      </if>
+      <if test="noon != null" >
+        #{noon,jdbcType=VARCHAR},
+      </if>
+      <if test="afternoon != null" >
+        #{afternoon,jdbcType=VARCHAR},
+      </if>
+      <if test="flow != null" >
+        #{flow,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null" >
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        #{info,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.matron.pojo.AdvertisingExample" resultType="java.lang.Integer" >
+    select count(*) from advertising
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update advertising
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.morning != null" >
+        morning = #{record.morning,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noon != null" >
+        noon = #{record.noon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.afternoon != null" >
+        afternoon = #{record.afternoon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flow != null" >
+        flow = #{record.flow,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pic != null" >
+        pic = #{record.pic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.info != null" >
+        info = #{record.info,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update advertising
+    set id = #{record.id,jdbcType=INTEGER},
+      morning = #{record.morning,jdbcType=VARCHAR},
+      noon = #{record.noon,jdbcType=VARCHAR},
+      afternoon = #{record.afternoon,jdbcType=VARCHAR},
+      flow = #{record.flow,jdbcType=VARCHAR},
+      pic = #{record.pic,jdbcType=VARCHAR},
+      info = #{record.info,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.matron.pojo.Advertising" >
+    update advertising
+    <set >
+      <if test="morning != null" >
+        morning = #{morning,jdbcType=VARCHAR},
+      </if>
+      <if test="noon != null" >
+        noon = #{noon,jdbcType=VARCHAR},
+      </if>
+      <if test="afternoon != null" >
+        afternoon = #{afternoon,jdbcType=VARCHAR},
+      </if>
+      <if test="flow != null" >
+        flow = #{flow,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null" >
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.matron.pojo.Advertising" >
+    update advertising
+    set morning = #{morning,jdbcType=VARCHAR},
+      noon = #{noon,jdbcType=VARCHAR},
+      afternoon = #{afternoon,jdbcType=VARCHAR},
+      flow = #{flow,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      info = #{info,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
