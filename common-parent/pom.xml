@@ -31,7 +31,7 @@
         <jedis.version>2.7.2</jedis.version>
         <solrj.version>4.10.3</solrj.version>
         <dubbo.version>2.4.9</dubbo.version>
-        <zookeeper.version>3.4.10</zookeeper.version>
+        <zookeeper.version>3.4.14</zookeeper.version>
         <zkclient.version>0.9</zkclient.version>
     </properties>
     <dependencyManagement>
